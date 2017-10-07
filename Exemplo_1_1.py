@@ -4,7 +4,7 @@ import collections
 # namedtuple cria classes que com atributos mas sem métodos
 
 Card = collections.namedtuple('Card', ['rank', 'suit'])
-
+suit_values = dict(spades=2, hearts=3, diamonds=1, clubs=0)
 
 # Classe que, embora concisa, representa o baralho completo
 class FrenchDeck:
@@ -23,3 +23,6 @@ class FrenchDeck:
     def __getitem__(self, position):
         return self._cards[position]
 
+def spades_high(card):
+    rank_value = FrenchDeck.ranks.index(card.rank)
+    return rank_value * len(suit_values) + suit_values[card.suit]
