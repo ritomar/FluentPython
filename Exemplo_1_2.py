@@ -13,7 +13,13 @@ class Vector:
         return 'Vector(%r, %r)' % (self.x, self.y)
 
     def __abs__(self):
-        """Calcula a magnitude"""
+        """Calcula a magnitude
+
+        >>> v = Vector(3, 4)
+        >>> abs(v)
+        5.0
+
+        """
         return hypot(self.x, self.y)
 
     def __bool__(self):
@@ -45,9 +51,11 @@ class Vector:
     def __mul__(self, scalar):
         """Implementa o operdor *
 
-        >>> v = Vector(2, 4)
-        >>> v * 2
-        Vector(4, 8)
+        >>> v = Vector(3, 4)
+        >>> v * 3
+        Vector(9, 12)
+        >>> abs(v * 3)
+        15.0
 
         """
         return Vector(self.x * scalar, self.y * scalar)
